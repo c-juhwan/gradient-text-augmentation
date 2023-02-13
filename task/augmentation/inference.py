@@ -144,7 +144,7 @@ def inference(args: argparse.Namespace) -> None:
             # Inference - Append augmented data to dictionary
             augmented_data_dict['text'].append(decoded_augmented_sequence)
             augmented_data_dict['label'].append(data_dicts['labels'].item())
-            augmented_data_dict['soft_label'].append(modified_classification_probs[0].cpu().detach())
+            augmented_data_dict['soft_label'].append(augmented_classification_probs[0].cpu().detach())
 
         """
         # STRATEGY 2: Iterative gradient modification from the original encoder_output
@@ -209,7 +209,7 @@ def inference(args: argparse.Namespace) -> None:
             # Inference - Append augmented data to dictionary
             augmented_data_dict['text'].append(decoded_augmented_sequence)
             augmented_data_dict['label'].append(data_dicts['labels'].item())
-            augmented_data_dict['soft_label'].append(modified_classification_probs[0].cpu().detach())
+            augmented_data_dict['soft_label'].append(augmented_classification_probs[0].cpu().detach())
         tqdm.write("\n")
         """
 
